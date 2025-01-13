@@ -9,14 +9,17 @@ namespace LibraryManagementSystem.Entities
 
         public User(string name)
         {
+            Name = name;
         }
 
         public void BorrowBook(Book book)
         {
+            BorrowedBooks.Add(book);
         }
 
         public void ReturnBook(Book book)
         {
+            BorrowedBooks.Remove(book);
         }
     }
 }

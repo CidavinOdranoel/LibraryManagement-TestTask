@@ -22,7 +22,7 @@ namespace LibraryManagementSystem.Tests
                 .WithYearPublished(1925)
                 .WithGenre("Classic")
                 .Build();
-
+            
             book2 = new Book.BookBuilder("1984", "George Orwell")
                 .WithISBN("978-0-452-28423-4")
                 .Build();
