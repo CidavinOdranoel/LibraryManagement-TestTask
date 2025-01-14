@@ -63,11 +63,14 @@ namespace LibraryManagementSystem.Tests
             Assert.DoesNotContain(book1, user.BorrowedBooks);
         }
 
+        // Test fails if you run all the tests at the same time
+        // Multiple tests create multiple instances of the same book and test doesn't pass
+        // Passes if only this one is run
         [Fact]
         public void Library_CanFindBooksByAuthor()
         {
             var booksByOrwell = library.FindBooksByAuthor("George Orwell").ToList();
-            Assert.Single(booksByOrwell);
+            Assert.Single(booksByOrwell); // is it required?
             Assert.Equal("1984", booksByOrwell[0].Title);
         }
 

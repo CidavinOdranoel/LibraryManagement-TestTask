@@ -14,12 +14,16 @@ namespace LibraryManagementSystem.Entities
 
         public void BorrowBook(Book book)
         {
+            if (book.IsBorrowed) 
+                throw new InvalidOperationException($"Book \"{book.Title}\" is already borrowed");
             BorrowedBooks.Add(book);
+            book.Borrow();
         }
 
         public void ReturnBook(Book book)
         {
             BorrowedBooks.Remove(book);
+            book.ReturnBook();
         }
     }
 }
